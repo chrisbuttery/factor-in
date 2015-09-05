@@ -1,48 +1,50 @@
-import { FactorIn as FI, Factory as F } from "../"
-import test from 'tape'
+var F = require('../')
+var FactorIn = F.FactorIn
+var Factory = F.Factory
+var test = require('tape')
 
-test('Factory should return an empty object when assigned no parameters', t => {
-  const expected = {}
-  const factory = F()
-  const f = factory()
+test('Factory should return an empty object when assigned no parameters', function (t) {
+  var expected = {}
+  var factory = Factory()
+  var f = factory()
   t.deepEqual(f, expected)
   t.end()
 })
 
 
-test('Factory should return an object when assigned no parameters', t => {
-  const expected = {foo: 'foo'}
-  const factory = F(expected)
+test('Factory should return an object when assigned no parameters', function (t) {
+  var expected = {foo: 'foo'}
+  var factory = Factory(expected)
   t.deepEqual(factory(), expected)
   t.end()
 })
 
-test('FactorIn should return null when assigned no parameters', t => {
-  const expected = null
-  const factorIn = FI()
+test('FactorIn should return null when assigned no parameters', function (t) {
+  var expected = null
+  var factorIn = FactorIn()
   t.equal(factorIn, expected)
   t.end()
 })
 
-test('FactorIn should return a null when assigned a function', t => {
-  const expected = function () {}
-  const factorIn = FI(expected)
+test('FactorIn should return a null when assigned a function', function (t) {
+  var expected = function () {}
+  var factorIn = FactorIn(expected)
   t.equal(factorIn, null)
   t.end()
 })
 
-test('FactorIn should return an object when assigned parameters', t => {
-  const expected = 'function'
-  const factorIn = FI({foo: 'foo'})
+test('FactorIn should return an object when assigned parameters', function (t) {
+  var expected = 'function'
+  var factorIn = FactorIn({foo: 'foo'})
   t.equal(typeof(factorIn), expected)
   t.end()
 })
 
-test('FactorIn should consume parameters from a factory', t => {
-  const expected = {foo: 'foo', bar: 'bar', baz: {id: 1}, qux: 'qux'}
-  const factorIn = FI({foo: 'foo', bar: 'bar', baz: {id: 1}})
-  const factory = F({qux: 'qux'})
-  const obj = factorIn(factory)
+test('FactorIn should consume parameters from a factory', function (t) {
+  var expected = {foo: 'foo', bar: 'bar', baz: {id: 1}, qux: 'qux'}
+  var factorIn = FactorIn({foo: 'foo', bar: 'bar', baz: {id: 1}})
+  var factory = Factory({qux: 'qux'})
+  var obj = factorIn(factory)
   t.deepEqual(obj, expected)
   t.end()
 })
