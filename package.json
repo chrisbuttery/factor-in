@@ -1,6 +1,6 @@
 {
   "name": "factor-in",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Factory functions that return a factory functions that inherit and return objects",
   "main": "index.js",
   "directories": {
