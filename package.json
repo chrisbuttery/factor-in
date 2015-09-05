@@ -1,0 +1,35 @@
+{
+  "name": "factor-in",
+  "version": "1.0.0",
+  "description": "Factory functions that return a factory functions that inherit and return objects",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "object-assign": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "faucet": "0.0.1",
+    "istanbul": "^0.3.19",
+    "standard": "^5.2.1",
+    "tape": "^4.2.0"
+  },
+  "scripts": {
+    "test": "babel-node test | faucet",
+    "posttest": "standard *.js text/*.js",
+    "test-cov": "standard *.js text/*.js && istanbul cover test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisbuttery"
+  },
+  "keywords": [
+    "javascript",
+    "functional",
+    "factory"
+  ],
+  "author": "Chris Buttery <info@chrisbuttery.com> (http://www.chrisbuttery.com)",
+  "license": "MIT"
+}
