@@ -10,7 +10,6 @@
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
     "coveralls": "^2.11.4",
     "faucet": "0.0.1",
     "istanbul": "^0.3.19",
@@ -18,7 +17,7 @@
     "tape": "^4.2.0"
   },
   "scripts": {
-    "test": "babel-node test | faucet",
+    "test": "node test | faucet",
     "posttest": "standard *.js text/*.js",
     "test-cov": "standard *.js text/*.js && istanbul cover test"
   },
