@@ -20,7 +20,7 @@
   "scripts": {
     "test": "babel-node test | faucet",
     "posttest": "standard *.js text/*.js",
-    "test-cov": "standard *.js text/*.js && istanbul cover test"
+    "test-cov": "standard *.js text/*.js && istanbul cover test/index.js"
   },
   "repository": {
     "type": "git",
