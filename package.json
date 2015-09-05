@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
+    "coveralls": "^2.11.3",
     "faucet": "0.0.1",
     "istanbul": "^0.3.19",
     "standard": "^5.2.1",
@@ -23,8 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chrisbuttery"
+    "url": "https://github.com/chrisbuttery/factor-in.git"
   },
+  "homepage": "https://github.com/chrisbuttery/factor-in.git",
   "keywords": [
     "javascript",
     "functional",
