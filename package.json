@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
-    "coveralls": "^2.11.3",
+    "coveralls": "^2.11.4",
     "faucet": "0.0.1",
     "istanbul": "^0.3.19",
     "standard": "^5.2.1",
@@ -20,7 +20,7 @@
   "scripts": {
     "test": "babel-node test | faucet",
     "posttest": "standard *.js text/*.js",
-    "test-cov": "standard *.js text/*.js && istanbul cover test/index.js"
+    "test-cov": "standard *.js text/*.js && istanbul cover test"
   },
   "repository": {
     "type": "git",
