@@ -1,8 +1,13 @@
 {
   "name": "factor-in",
-  "version": "1.0.2",
-  "description": "Factory functions that return a factory functions that inherit and return objects",
+  "version": "1.0.3",
+  "description": "Generate unique factory functions that return objects with inherited object data",
   "main": "index.js",
+  "files": [
+    "LICENSE",
+    "index.js",
+    "README.md"
+  ],
   "directories": {
     "test": "test"
   },
@@ -23,6 +28,9 @@
   },
   "repository": {
     "type": "git",
+    "url": "https://github.com/chrisbuttery/factor-in.git"
+  },
+  "bugs": {
     "url": "https://github.com/chrisbuttery/factor-in.git"
   },
   "homepage": "https://github.com/chrisbuttery/factor-in.git",
