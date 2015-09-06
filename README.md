@@ -17,23 +17,16 @@ $ npm install --save factor-in
 ## Usage
 
 ```js
-import { factorIn as FI, factory as F } from 'factor-in'
+import factorIn from 'factor-in'
 
-// Create our base factory function with object data we expect all
+// Create our base object data we expect all
 // factory functions to inherit from.
-const FactorIn = FI ({
+const f = factorIn ({
   foo () {},
   bar () {}
 })
 
-// Create a new factory function with unique object data
-const UniqueFactory = F ({
-  baz: 'Baz',
-  qux: 'Qux'
-})
-
-// To create our custom object we`factor-in` our `UniqueFactory` function.
-const myCustomObject = FactorIn(UniqueFactory)
+var obj = f ({ baz: 'Baz', qux: 'Qux' })
 //=> {foo: foo(), bar: bar(), baz: 'Baz', qux: 'Qux'}
 ```
 
