@@ -5,7 +5,8 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![js-standard-style][standard-image]][standard-url]
 
-Factory functions that return a factory functions that inherit and custom objects
+Generate unique factory functions that return objects with inherited object data.  
+Useful for creating custom object data for unit tests.
 
 ## Install
 
@@ -16,28 +17,24 @@ $ npm install --save factor-in
 ## Usage
 
 ```js
-import { FactorIn as FI, Factory as F } from 'factor-in'
+import { factorIn as FI, factory as F } from 'factor-in'
 
-const createFactory = FactorIn({
+// Create our base factory function with object data we expect all
+// factory functions to inherit from.
+const FactorIn = FI ({
   foo () {},
   bar () {}
 })
 
-const factory1 = Factory({
+// Create a new factory function with unique object data
+const UniqueFactory = F ({
   baz: 'Baz',
   qux: 'Qux'
 })
 
-const myObject1 = createFactory(factory1)
+// To create our custom object we`factor-in` our `UniqueFactory` function.
+const myCustomObject = FactorIn(UniqueFactory)
 //=> {foo: foo(), bar: bar(), baz: 'Baz', qux: 'Qux'}
-
-const factory2 = Factory({
-  quux: 'Quux',
-  corge: 'Corge'
-})
-
-const myObject2 = createFactory(factory2)
-//=> {foo: foo(), bar: bar(), quux: 'Quux', corge: 'Corge'}
 ```
 
 ## License

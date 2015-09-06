@@ -1,15 +1,16 @@
 var objectAssign = require('object-assign')
 
 module.exports = {
+
   /**
-   * FactoryFactory
+   * factorIn
    * Take optional actions and return a Factory function
-   * calling said actions
+   * that calls said actions
    * @param  {Object} actions
    * @return {Function}
    */
 
-  FactorIn: function (actions) {
+  factorIn: function (actions) {
     if (typeof (actions) !== 'object') return null
     actions = actions || {}
     return function (f) {
@@ -18,24 +19,18 @@ module.exports = {
   },
 
   /**
-   * Factory
+   * factory
    * Return a function that applies it's `actions` to any optional `args`
    * and returns an object.
    * @param  {Object} args
    * @return {Function}
    */
 
-  Factory: function (args) {
+  factory: function (args) {
     args = args || null
-
     return function (actions) {
       actions = actions || {}
-
-      return objectAssign(
-        {},
-        actions,
-        args
-      )
+      return objectAssign({}, actions, args)
     }
   }
 }
