@@ -1,21 +1,37 @@
 var factorIn = require('../')
 var test = require('tape')
 
-test('should return null if a non object is provided as a param', function (t) {
-  var expected = null
-  var factor = factorIn('foo');
-  t.equal(factor, expected)
+test('curries a single value', function (t) {
+  var expected = {foo: 'foo'}
+  var f = factorIn(expected)
+  t.deepEqual(f(), expected)
   t.end()
 })
 
-test('it should build', function (t) {
-  var expected = {foo: 'foo', bar: 'bar', baz: {id: 1}, qux: 'qux'}
-  var factor = factorIn({foo: 'foo', bar: 'bar', baz: {id: 1}});
-
-  var f = factor({qux: 'qux'})
+test('forwards extra arguments', function (t) {
+  var expected = {foo: 'foo', bar: 'bar'}
+  var f = factorIn({foo: 'foo'})({bar: 'bar'})
   t.deepEqual(f, expected)
+  t.end()
+})
 
-  var g = factor({corge: 'corge'})
-  t.deepEqual(g, {foo: 'foo', bar: 'bar', baz: {id: 1}, corge: 'corge'})
+test('returns inherited object data', function (t) {
+  var expected = 3
+  var f = factorIn({foo: 'foo', bar: function() { console.log('hello')} })
+  t.deepEqual(Object.keys(f({baz: 'baz'})).length, expected)
+  t.end()
+})
+
+test('reports the length of the curried function', function (t) {
+  var expected = 1
+  var f = factorIn({foo: 'foo', bar: 'bar'})
+  t.deepEqual(f.length, expected)
+  t.end()
+})
+
+test('returns undefined if an object is not provided as a param', function (t) {
+  var expected = undefined
+  var factor = factorIn('foo');
+  t.equal(factor, expected)
   t.end()
 })
