@@ -1,9 +1,17 @@
 var objectAssign = require('object-assign')
 var R = require('ramda')
 
+/**
+ * FactorIn
+ * Return a factory function that returns an object inherited from `FactorIn`
+ * @param {Object} actions - an object of base key/values to be inherited
+ * @return {Function} a named 'Factory' function that applies it's 'args' to 'actions'
+ * and returns the object
+ */
+
 function FactorIn (actions) {
   if (typeof (actions) !== 'object') return
-  return function (args) {
+  return function Factory (args) {
     return objectAssign(
       {},
       actions,
@@ -11,5 +19,10 @@ function FactorIn (actions) {
     )
   }
 }
+
+/**
+ * Exports
+ * Return 'FactorIn' curried by Ramda
+ */
 
 module.exports = R.curry(FactorIn)
