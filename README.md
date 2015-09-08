@@ -30,6 +30,31 @@ var obj = f ({ baz: 'Baz', qux: 'Qux' })
 //=> {foo: foo(), bar: bar(), baz: 'Baz', qux: 'Qux'}
 ```
 
+```js
+// some-test.js
+
+import test from 'tape'
+
+var fixture = factorIn ({
+  foo: 'foo',
+  bar: 'bar'
+})
+
+test('should do something amazing', t => {
+  var actual = fixture ({ baz: function () {} })
+  t.equal(Object.keys(actual).length, 3, 'I have 3 keys!')
+  t.ok(actual.baz, 'I have a baz function!')
+  t.end()
+})
+
+test('should do something equally amazing', t => {
+  const expected = {foo: 'foo', bar: 'bar', baz: [1, 2, 3]}
+  const actual = fixture ({baz: [1, 2, 3]})
+  t.deepEqual(actual, expected, 'Another Triumph!')
+  t.end()
+})
+```
+
 ## License
 
 MIT © [Chris Buttery](http://chrisbuttery.com)
