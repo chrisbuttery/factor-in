@@ -34,6 +34,7 @@ var obj = f ({ baz: 'Baz', qux: 'Qux' })
 // some-test.js
 
 import test from 'tape'
+import factorIn from 'factor-in'
 
 var fixture = factorIn ({
   foo: 'foo',
