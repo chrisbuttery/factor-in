@@ -31,28 +31,27 @@ var obj = f ({ baz: 'Baz', qux: 'Qux' })
 ```
 
 ```js
-// some-test.js
+test('Demo component', nest => {
+  // fixture to be shared across nested tests
+  const fixture = factorIn({
+    setWord () {},
+    setMode () {}
+  })
 
-import test from 'tape'
-import factorIn from 'factor-in'
+  nest.test('...with basic fixture', t => {
+    const el = <Hello actions={ fixture() } />
+    //> { setWord: function setWord () {}, setMode: function setMode () {} }
+    t.equal(actual, expected, 'should have common methods')
+    t.end()
+  })
 
-var fixture = factorIn ({
-  foo: 'foo',
-  bar: 'bar'
-})
-
-test('should do something amazing', t => {
-  var actual = fixture ({ baz: function () {} })
-  t.equal(Object.keys(actual).length, 3, 'I have 3 keys!')
-  t.ok(actual.baz, 'I have a baz function!')
-  t.end()
-})
-
-test('should do something equally amazing', t => {
-  const expected = {foo: 'foo', bar: 'bar', baz: [1, 2, 3]}
-  const actual = fixture ({baz: [1, 2, 3]})
-  t.deepEqual(actual, expected, 'Another Triumph!')
-  t.end()
+  nest.test('...with extended fixture', t => {
+    const extendedFixture = fixture({ setAction () {} })
+    const el = <Hello actions={ extendedFixture } />
+    //> { setWord: function setWord () {}, setMode: function setMode() {}, setAction: function setAction() {} }
+    t.equal(actual, expected, 'should have common and extended methods')
+    t.end()
+  })
 })
 ```
 
