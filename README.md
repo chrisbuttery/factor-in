@@ -5,8 +5,7 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![js-standard-style][standard-image]][standard-url]
 
-Generate unique factory functions that return objects with inherited object data.  
-Useful for creating custom object data for unit tests.
+A factory of factory functions. Share and extend object data.
 
 ## Install
 
