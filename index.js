@@ -1,5 +1,4 @@
 var objectAssign = require('object-assign')
-var R = require('ramda')
 
 /**
  * FactorIn
@@ -25,4 +24,4 @@ function FactorIn (actions) {
  * Return 'FactorIn' curried by Ramda
  */
 
-module.exports = R.curry(FactorIn)
+module.exports = FactorIn
